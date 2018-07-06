@@ -9,22 +9,22 @@ if ~exist(N_codar_data_dir, 'dir')
     mkdir(N_codar_data_dir);
 end
 %% WLV files
-N_WVLM_dir = [pwd '/codar_data/WLVM/'];
+N_WVLM_dir = [pwd '/codar_data/WVLM/'];
 if ~exist(N_WVLM_dir, 'dir')
     mkdir(N_WVLM_dir);
 end
 
-N_WVLR_dir = [pwd '/codar_data/WLVR/'];
+N_WVLR_dir = [pwd '/codar_data/WVLR/'];
 if ~exist(N_WVLR_dir, 'dir')
     mkdir(N_WVLR_dir);
 end
 %% WVL SPRK
-N_WVLM_SPRK_dir = [pwd '/codar_data/WLVM/SPRK/'];
+N_WVLM_SPRK_dir = [pwd '/codar_data/WVLM/SPRK/'];
 if ~exist(N_WVLM_SPRK_dir, 'dir')
     mkdir(N_WVLM_SPRK_dir);
 end
 
-N_WVLR_SPRK_dir = [pwd '/codar_data/WLVR/SPRK/'];
+N_WVLR_SPRK_dir = [pwd '/codar_data/WVLR/SPRK/'];
 if ~exist(N_WVLR_SPRK_dir, 'dir')
     mkdir(N_WVLR_SPRK_dir);
 end

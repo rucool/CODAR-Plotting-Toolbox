@@ -106,7 +106,7 @@ statsfile = ['Site ' codar.name{ii} ' RC ' num2str(rc) ' ' dtime.startstr ' ' dt
 statsfolder = [pwd '/site_statistics/'];
 fclose('all');
 fileID = fopen(statsfile, 'w');
-fprintf(fileID,'%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%\n');
+fprintf(fileID,'%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% \n');
 fprintf(fileID,'Percent Data return for Wave Height at CODAR site %s \n',codar.name{ii});
 fprintf(fileID,'Between %s & %s \n',datestr(dtime.start),datestr(dtime.end));
 DataPts.CODAR = sum(~isnan(codar02i));
@@ -120,7 +120,7 @@ RHO = corr(buoy01i(Good==0),codar02i(Good==0));
 fprintf(fileID,'Correlation %s \n',num2str(RHO,digits));
 RMSD = sqrt(mean((buoy01i(Good==0)-codar02i(Good==0)).^2));
 fprintf(fileID,'RMS Difference %5.2f \n',RMSD);
-fprintf(fileID,'%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%\n');
+fprintf(fileID,'%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% \n');
 fclose(fileID);
 movefile(statsfile,statsfolder);
 
