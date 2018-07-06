@@ -34,24 +34,34 @@ disp(newline);
 %Buoy Directory
 conf.data_path.ndbc=[pwd '/ndbc_data/'];
 %CODAR .wls file Directory
+directoryinput = input(['Magic Average or Range Cells?' newline '1 for WVLM (Magic Average)' ...
+    newline '2 for WVLR (Range Cells)' newline 'Input: '],'s');
+if directoryinput == '1'
+conf.data_path.codar_waves=[pwd '/codar_data/WVLM/'];
+elseif directoryinput == '2'
 conf.data_path.codar_waves=[pwd '/codar_data/WVLR/'];
+end
 %Print location
 conf.print_path=[pwd '/figures/'];
+disp(newline);
 
 %% Read in fuctions and defining data
 
 for ii=1:length(codar.name)
 
-%buoy_data is the NDBC data
-%codar_data is the CODAR data
 buoy_data=load([conf.data_path.ndbc buoy.name{indB} '/ndbc_' buoy.name{indB} '_2018.mat']);
 
 datapath=[conf.data_path.codar_waves codar.name{ii}];
 [CODAR]=Codar_WVM9_readin_func(datapath,'wls');
 
 %% First round of indexing, only taking the data from the specified range cell
+if directoryinput == '2'
 rci = input(['What Range Cells would you like to use?' newline 'Use matrix format, ex: [3 5 7]' newline 'Input: ']);
 disp(newline);
+elseif directoryinput == '1'
+rci = 2;
+end
+
 for rc = rci
 ind1=find(CODAR.RCLL==rc);
 
@@ -116,7 +126,12 @@ movefile(statsfile,statsfolder);
 
 %% plot the despiked data
 hold all
+if directoryinput == '2'
 plot(CODAR3.time,CODAR4.MWHT,'LineWidth',1,'DisplayName', ['Range Cell ' num2str(rc)]);
+elseif directoryinput == '1'
+plot(CODAR3.time,CODAR4.MWHT,'LineWidth',1,'DisplayName', 'Magic Average');
+end
+
 end
 plot(NDBC.time,NDBC4.MWHT,'k','LineWidth',2,'DisplayName', ['Buoy ' buoy.name{indB}]);
 

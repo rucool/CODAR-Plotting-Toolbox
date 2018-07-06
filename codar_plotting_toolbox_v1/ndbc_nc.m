@@ -15,7 +15,7 @@ for ii=1:length(buoy.year)
 %     end
 
     %file=['http://dods.ndbc.noaa.gov//thredds/dodsC/data/stdmet/44009/44009h' num2str(year(ii)) '.nc'];
-    file=['http://dods.ndbc.noaa.gov//thredds/dodsC/data/stdmet/' buoy.name '/' buoy.name 'h' num2str(buoy.year(ii)) '.nc'];
+    file=['https://dods.ndbc.noaa.gov//thredds/dodsC/data/stdmet/' buoy.name '/' buoy.name 'h' num2str(buoy.year(ii)) '.nc'];
     disp(file);
     ncdisp(file)
     
