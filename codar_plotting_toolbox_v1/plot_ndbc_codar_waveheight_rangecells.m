@@ -136,7 +136,7 @@ end
 plot(NDBC.time,NDBC4.MWHT,'k','LineWidth',2,'DisplayName', ['Buoy ' buoy.name{indB}]);
 
 %% Plotting tools
-title(['Comparison of Buoy and CODAR Wave Height ' datestr(dtime.start) ' to ' datestr(dtime.end)]);
+title(['Comparison of Buoy and CODAR Wave Height   ' datestr(dtime.start) ' to ' datestr(dtime.end)]);
 legend('show','AutoUpdate','off')
 ylabel('Wave Height (m)')
 format_axis(gca,dtime.start,dtime.end,7,1,'mm/dd',0,6,1)
